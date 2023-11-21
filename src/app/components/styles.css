@@ -1,0 +1,10 @@
+.wd-card-body {
+    /* min-height: 300px; */
+    min-width: 200px;
+    margin-right: 15px;
+}
+
+.list-group {
+    max-height: 300px;
+    overflow:scroll;
+}

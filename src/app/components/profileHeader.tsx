@@ -4,12 +4,12 @@ function ProfileHeader() {
     return (
         <div className="container">
             <div className="row ms-5">
-                <div className="col">
-                    <Image src="https://placehold.co/600x600" alt="profPic" thumbnail />
+                <div className="col-md mb-3">
+                    <Image src="https://placehold.co/200x200" alt="profPic" thumbnail />
                 </div>
-                <div className="col-9 ms-5">
+                <div className="col-sm-9 ms-5">
                    <h4>User name (pronouns)</h4>
-                   <p className='mb-0'>555-(555)-5555</p>
+                   <p className='mb-0'>(555)-555-5555</p>
                    <p>useremail@email.com</p>
 
                    <p>10 Followers  |  12 Following</p>
