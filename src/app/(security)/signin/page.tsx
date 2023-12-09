@@ -1,6 +1,6 @@
 "use client";
 
-import * as client from "../client";
+import * as client from "../../client";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -12,7 +12,7 @@ function Signin() {
   const router = useRouter();
   const signin = async () => {
     await client.signin(credentials);
-    router.push("/account");
+    router.push("/profile");
   };
   return (
     <div>

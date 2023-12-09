@@ -1,6 +1,6 @@
 "use client";
 
-import * as client from "../client";
+import * as client from "../../client";
 import React from "react";
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -10,18 +10,15 @@ function Signup() {
   const [showError, setShowError] = useState(false);
   const [error, setError] = useState("");
   const [user, setUser] = useState({
-    _id: -1,
     email: "",
     password: "",
     firstName: "",
     lastName: "",
-    dob: "",
-    role: client.UserType.User,
   });
-  const createUser = async () => {
+  const signup = async () => {
     try {
-      await client.createUser(user);
-      router.push("/account");
+      await client.signup(user);
+      router.push("/profile");
     } catch (err: any) {
       setShowError(true);
       setError(err.message);
@@ -62,16 +59,7 @@ function Signup() {
           onChange={(e) => setUser({ ...user, lastName: e.target.value })}
         />
       </div>
-      <div className="form-group mt-2">
-        <label>Date of Birth</label>
-        <input
-          type="date"
-          className="form-control mt-2 mb-2"
-          value={user.dob}
-          onChange={(e) => setUser({ ...user, dob: e.target.value })}
-        />
-      </div>
-      <button className="btn btn-primary mt-4" onClick={createUser}>
+      <button className="btn btn-primary mt-4" onClick={signup}>
         Signup
       </button>
       {showError ? <ErrorMessage message={error} /> : null}
