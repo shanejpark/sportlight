@@ -1,7 +1,9 @@
 "use client";
 
-import "globals.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Inter } from "next/font/google";
+import Navbar from "./components/navbar";
+
+const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata: Metadata = {
 //   title: 'Create Next App',
@@ -14,8 +16,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+    <body className={inter.className}>
+      <Navbar />
+      {children}
+    </body>
   );
 }
