@@ -1,8 +1,8 @@
 {
-  "type": "module",
   "name": "sportlight",
   "version": "0.1.0",
   "private": true,
+  "proxy": "localhost:4000",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

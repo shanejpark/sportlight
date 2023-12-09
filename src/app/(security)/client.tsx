@@ -18,12 +18,11 @@ export interface ICredentials {
   password: String;
 }
 
-export const USERS_API = `localhost:4000/api/users`;
+export const USERS_API = `http://localhost:4000/api/users`;
 
 export const signin = async (credentials: ICredentials) => {
   const response = await fetch(`${USERS_API}/signin`, {
     method: "POST", // *GET, POST, PUT, DELETE, etc.
-    mode: "cors", // no-cors, *cors, same-origin
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
     credentials: "same-origin", // include, *same-origin, omit
     headers: {
@@ -40,7 +39,6 @@ export const signin = async (credentials: ICredentials) => {
 export const account = async () => {
   const response = await fetch(`${USERS_API}/account`, {
     method: "POST", // *GET, POST, PUT, DELETE, etc.
-    mode: "cors", // no-cors, *cors, same-origin
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
     credentials: "same-origin", // include, *same-origin, omit
     headers: {
@@ -55,7 +53,6 @@ export const account = async () => {
 export const updateUser = async (user: IUser) => {
   const response = await fetch(`${USERS_API}/${user._id}`, {
     method: "PUT", // *GET, POST, PUT, DELETE, etc.
-    mode: "cors", // no-cors, *cors, same-origin
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
     credentials: "same-origin", // include, *same-origin, omit
     headers: {
@@ -72,7 +69,6 @@ export const updateUser = async (user: IUser) => {
 export const findAllUsers = async () => {
   const response = await fetch(`${USERS_API}`, {
     method: "GET", // *GET, POST, PUT, DELETE, etc.
-    mode: "cors", // no-cors, *cors, same-origin
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
     credentials: "same-origin", // include, *same-origin, omit
     headers: {
@@ -87,7 +83,6 @@ export const findAllUsers = async () => {
 export const createUser = async (user: IUser) => {
   await fetch(`${USERS_API}`, {
     method: "POST", // *GET, POST, PUT, DELETE, etc.
-    mode: "cors", // no-cors, *cors, same-origin
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
     credentials: "same-origin", // include, *same-origin, omit
     headers: {
@@ -107,7 +102,6 @@ export const createUser = async (user: IUser) => {
 export const findUserById = async (id: Number) => {
   const response = await fetch(`${USERS_API}/${id}`, {
     method: "GET", // *GET, POST, PUT, DELETE, etc.
-    mode: "cors", // no-cors, *cors, same-origin
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
     credentials: "same-origin", // include, *same-origin, omit
     headers: {
@@ -122,7 +116,6 @@ export const findUserById = async (id: Number) => {
 export const deleteUser = async (user: IUser) => {
   const response = await fetch(`${USERS_API}/${user._id}`, {
     method: "DELETE", // *GET, POST, PUT, DELETE, etc.
-    mode: "cors", // no-cors, *cors, same-origin
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
     credentials: "same-origin", // include, *same-origin, omit
     headers: {
@@ -137,7 +130,6 @@ export const deleteUser = async (user: IUser) => {
 export const signup = async (credentials: ICredentials) => {
   await fetch(`${USERS_API}/signup`, {
     method: "POST", // *GET, POST, PUT, DELETE, etc.
-    mode: "cors", // no-cors, *cors, same-origin
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
     credentials: "same-origin", // include, *same-origin, omit
     headers: {
@@ -157,7 +149,6 @@ export const signup = async (credentials: ICredentials) => {
 export const signout = async () => {
   const response = await fetch(`${USERS_API}/signout`, {
     method: "POST", // *GET, POST, PUT, DELETE, etc.
-    mode: "cors", // no-cors, *cors, same-origin
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
     credentials: "same-origin", // include, *same-origin, omit
     headers: {
