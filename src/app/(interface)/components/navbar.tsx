@@ -64,7 +64,7 @@ function NavBar() {
           </Link>
         </Nav>
         <Nav className="float-end">
-          <Link href="/home" className="nav-link" onClick={signout}>
+          <Link href="/signin" className="nav-link" onClick={signout}>
             <TbLogout2 size={30} />
           </Link>
         </Nav>
