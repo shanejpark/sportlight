@@ -16,7 +16,7 @@ function Signin() {
   };
   return (
     <div>
-      <h1>Signin</h1>
+      <h1>Sign in</h1>
       <div className="form-group mt-4">
         <label>Email address</label>
         <input
@@ -34,6 +34,7 @@ function Signin() {
           className="form-control mt-2 mb-2"
           placeholder="A very secure password"
           value={credentials.password}
+          type="password"
           onChange={(e) =>
             setCredentials({ ...credentials, password: e.target.value })
           }
@@ -47,7 +48,7 @@ function Signin() {
           className="btn btn-secondary col ms-3"
           href={{ pathname: "/signup", query: credentials }}
         >
-          Signup
+          Sign up
         </Link>
       </div>
     </div>

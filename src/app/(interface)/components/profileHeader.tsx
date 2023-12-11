@@ -2,10 +2,25 @@
 
 import * as client from "../../client";
 import { useState, useEffect } from "react";
-import Image from "react-bootstrap/Image";
+import { useParams } from 'next/navigation'
 
 function ProfileHeader() {
-  const [account, setAccount] = useState({});
+  const { id } = useParams()
+
+  const [account, setAccount] = useState({
+    email: "",
+    password: "",
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    bio: "",
+    pronouns: "",
+  });
+
+  const findUserById = async (id: any) => {
+    const user = await client.findUserById(id);
+    setAccount(user);
+  };
 
   const fetchAccount = async () => {
     const account = await client.account();
@@ -13,29 +28,39 @@ function ProfileHeader() {
   };
 
   useEffect(() => {
-    fetchAccount();
+    console.log(id)
+    if (id) {
+      findUserById(id);
+    } else {
+      fetchAccount();
+    }
   }, []);
+
+  const formattedPhoneNumber = (num: string) => {
+    let formattedNumber = "(" + String(num).substring(0, 3) + ")" + String(num).substring(3, 6) + "-" + String(num).substring(6);
+    return formattedNumber;
+  }
 
   return (
     <div className="container">
       <div className="row ms-5">
-        <div className="col-md mb-3">
-          <Image src="https://placehold.co/200x200" alt="profPic" thumbnail />
-        </div>
         {account && (
           <div className="col-sm-9 ms-5">
-            <h4>{account.email}</h4>
-            <p className="mb-0">(555)-555-5555</p>
-            <p>useremail@email.com</p>
+            <h2>{account.firstName} {account.lastName}</h2>
+            <p>{account.pronouns !== "None" ? account.pronouns : ""}</p>
+
+            {
+              id === undefined ?
+                <><p className="mb-0">{account.phoneNumber != undefined ? formattedPhoneNumber(account.phoneNumber) : ""}</p>
+                  <p>{account.email}</p></>
+                :
+                null
+            }
 
             <p>10 Followers | 12 Following</p>
 
             <p className="text-break">
-              This is my bio, I love sports and stuff. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-              ex ea commodo consequat.{" "}
+              {account.bio}{" "}
             </p>
           </div>
         )}
