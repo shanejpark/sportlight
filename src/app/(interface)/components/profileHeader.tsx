@@ -3,19 +3,12 @@
 import * as client from "../../client";
 import { useState, useEffect } from "react";
 import { useParams } from 'next/navigation'
+import FollowDisplay from "./followDisplay";
 
 function ProfileHeader() {
   const { id } = useParams()
 
-  const [account, setAccount] = useState({
-    email: "",
-    password: "",
-    firstName: "",
-    lastName: "",
-    phoneNumber: "",
-    bio: "",
-    pronouns: "",
-  });
+  const [account, setAccount] = useState<client.IUser>();
 
   const findUserById = async (id: any) => {
     const user = await client.findUserById(id);
@@ -28,15 +21,14 @@ function ProfileHeader() {
   };
 
   useEffect(() => {
-    console.log(id)
     if (id) {
       findUserById(id);
     } else {
       fetchAccount();
     }
-  }, []);
+  }, [account]);
 
-  const formattedPhoneNumber = (num: string) => {
+  const formattedPhoneNumber = (num: String) => {
     let formattedNumber = "(" + String(num).substring(0, 3) + ")" + String(num).substring(3, 6) + "-" + String(num).substring(6);
     return formattedNumber;
   }
@@ -57,7 +49,7 @@ function ProfileHeader() {
                 null
             }
 
-            <p>10 Followers | 12 Following</p>
+            <FollowDisplay followersIds={account.followers} followingIds={account.following}/>
 
             <p className="text-break">
               {account.bio}{" "}

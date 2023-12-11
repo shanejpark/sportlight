@@ -11,7 +11,7 @@ export interface INewUser {
 }
 
 export interface IUser {
-  _id: Number;
+  _id: String;
   email: String;
   password: String;
   firstName: String;
@@ -20,8 +20,8 @@ export interface IUser {
   bio: String;
   pronouns: String;
   phoneNumber: String;
-  followers: [Number];
-  following: [Number];
+  followers: [String]
+  following: [String];
   highlights: [Number];
   matches: [Number];
   teams: [Number];
