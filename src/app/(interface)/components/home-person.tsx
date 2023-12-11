@@ -6,9 +6,9 @@ import { IUser } from '@/app/client';
 function HomePerson(account: any) {
     const user = account.user;
     return (
-        <div className="col-md-3 text-decoration-none me-3 mb-5">
+        <div className="col-lg-3 text-decoration-none mb-5">
             <Link className="text-decoration-none" key={user._id} href={`/profile/${user._id}`}>
-                <div className="card h-75">
+                <div className="card h-75 me-5 ms-5">
                     <div className="card-body">
                         <h5 className="card-title">{user.firstName} {user.lastName}</h5>
                         <h6 className="card-subtitle mb-2 text-muted">{user.bio}</h6>

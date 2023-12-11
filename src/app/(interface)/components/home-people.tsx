@@ -3,7 +3,6 @@
 import * as client from "../../client";
 import HomePerson from "./home-person";
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 
 function HomePeople() {
     const [users, setUsers] = useState([]);
@@ -14,7 +13,6 @@ function HomePeople() {
         if (account) {
             users = users.filter((user: any) => user._id !== account._id)
         }
-        users = users.filter((user: any) => user._id !== account._id)
         setUsers(users);
     };
 
@@ -28,8 +26,8 @@ function HomePeople() {
     return (
         <div>
             <h4>People</h4>
-            <div className="container me-5 mt-5">
-                <div className="d-flex justify-content-evenly">
+            <div className="d-flex justify-content-center container mt-5">
+                <div className="d-flex flex-wrap w-100">
                     {users.map((user: client.IUser) => (
                         <HomePerson key={user._id} user={user} />
                     ))}
