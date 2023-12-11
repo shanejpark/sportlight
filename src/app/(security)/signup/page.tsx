@@ -26,7 +26,7 @@ function Signup() {
   };
   return (
     <div>
-      <h1>Signup</h1>
+      <h1>Sign up</h1>
       <div className="form-group mt-4">
         <label>Email address</label>
         <input
@@ -40,6 +40,7 @@ function Signup() {
         <input
           className="form-control mt-2 mb-2"
           value={user.password}
+          type="password"
           onChange={(e) => setUser({ ...user, password: e.target.value })}
         />
       </div>
@@ -60,7 +61,7 @@ function Signup() {
         />
       </div>
       <button className="btn btn-primary mt-4" onClick={signup}>
-        Signup
+        Sign up
       </button>
       {showError ? <ErrorMessage message={error} /> : null}
     </div>

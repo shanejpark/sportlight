@@ -115,7 +115,7 @@ export const createUser = async (user: INewUser) => {
     return response.json();
   });
 };
-export const findUserById = async (id: Number) => {
+export const findUserById = async (id: String) => {
   const response = await fetch(`${USERS_API}/${id}`, {
     method: "GET", // *GET, POST, PUT, DELETE, etc.
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached

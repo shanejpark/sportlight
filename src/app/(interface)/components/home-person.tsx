@@ -1,17 +1,25 @@
 import Button from 'react-bootstrap/esm/Button';
 import Link from 'next/link';
 import { FaCircle } from "react-icons/fa6";
+import { IUser } from '@/app/client';
 
-function HomePerson() {
+function HomePerson(account: any) {
+    const user = account.user;
     return (
-            <div className="col-lg d-flex align-items-center mb-5 ms-4 me-4 flex-column">
-                <Link href="/profile">
-                    <FaCircle size={125} color={"silver"}/>
-                </Link>
-                    <div className='mt-4'>
-                        <Button variant="secondary" size="sm" >+ Follow</Button>{' '}
-                        </div>
+        <div className="col-md-3 text-decoration-none me-3 mb-5">
+            <Link className="text-decoration-none" key={user._id} href={`/profile/${user._id}`}>
+                <div className="card h-75">
+                    <div className="card-body">
+                        <h5 className="card-title">{user.firstName} {user.lastName}</h5>
+                        <h6 className="card-subtitle mb-2 text-muted">{user.bio}</h6>
+                        {/* <p className="card-text">{user.followers}</p> */}
+                    </div>
                 </div>
+            </Link>
+            <div className='d-flex justify-content-center mt-4'>
+                <Button variant="secondary" size="sm" >+ Follow</Button>{' '}
+            </div>
+        </div>
     );
 }
 
