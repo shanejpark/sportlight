@@ -61,7 +61,7 @@ function Signup() {
           onChange={(e) => setUser({ ...user, lastName: e.target.value })}
         />
       </div>
-      <button className="btn btn-primary mt-4" onClick={signup}>
+      <button className="btn btn-dark mt-4" onClick={signup}>
         Sign up
       </button>
       {showError ? <ErrorMessage message={error} /> : null}

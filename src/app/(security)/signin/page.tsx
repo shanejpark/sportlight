@@ -41,7 +41,7 @@ function Signin() {
         />
       </div>
       <div className="row flex-row mt-4 ">
-        <button className="btn btn-primary col me-3" onClick={signin}>
+        <button className="btn btn-dark col me-3" onClick={signin}>
           Login
         </button>
         <Link

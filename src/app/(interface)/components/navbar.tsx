@@ -41,7 +41,7 @@ function NavBar() {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Link href="/home" className="navbar-brand">
-          Sportlight
+          <h1 style={{fontFamily: "Brush Script MT, cursive"}}>Sportlight</h1>
         </Link>
         {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
         {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
@@ -55,7 +55,7 @@ function NavBar() {
               />
             </Col>
             <Col xs="auto">
-              <Button type="submit">Submit</Button>
+              <Button type="submit" className="btn btn-dark">Submit</Button>
             </Col>
           </Row>
         </Form>

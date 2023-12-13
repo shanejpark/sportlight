@@ -10,7 +10,7 @@ export default function Profile() {
         <div className="d-flex flex-column">
             <div className="d-flex mt-5 ms-5">
                 <ProfileHeader />
-                <div className="w-25 float-end">
+                <div className="w-25 float-end me-3">
                     <Link href="/profile/edit">
                         <Button variant="outline-secondary">
                             <MdOutlineEdit />

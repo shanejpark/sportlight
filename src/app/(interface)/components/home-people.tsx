@@ -57,7 +57,7 @@ function HomePeople() {
                         <div className="col-lg-4 d-flex flex-column align-items-stretch mb-4">
                             <HomePerson user={user} />
                             <div className='d-flex justify-content-center mt-3'>
-                                <Button variant="secondary"  size="sm" onClick={() => follow(user)}>+ Follow</Button>{' '}
+                                <Button variant="dark"  size="sm" onClick={() => follow(user)}>+ Follow</Button>{' '}
                             </div>
                         </div>
                     ))}
