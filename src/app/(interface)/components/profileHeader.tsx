@@ -2,11 +2,11 @@
 
 import * as client from "../../client";
 import { useState, useEffect } from "react";
-import { useParams } from 'next/navigation'
+import { useParams } from "next/navigation";
 import FollowDisplay from "./followDisplay";
 
 function ProfileHeader() {
-  const { id } = useParams()
+  const { id } = useParams();
 
   const [account, setAccount] = useState<client.IUser>();
 
@@ -29,31 +29,43 @@ function ProfileHeader() {
   }, [account]);
 
   const formattedPhoneNumber = (num: String) => {
-    let formattedNumber = "(" + String(num).substring(0, 3) + ")" + String(num).substring(3, 6) + "-" + String(num).substring(6);
+    let formattedNumber =
+      "(" +
+      String(num).substring(0, 3) +
+      ")" +
+      String(num).substring(3, 6) +
+      "-" +
+      String(num).substring(6);
     return formattedNumber;
-  }
+  };
 
   return (
     <div className="container">
       <div className="row ms-5">
         {account && (
           <div className="col-sm-9 ms-5">
-            <h2>{account.firstName} {account.lastName}</h2>
+            <h2>
+              {account.firstName} {account.lastName}
+            </h2>
             <p>{account.pronouns !== "None" ? account.pronouns : ""}</p>
 
-            {
-              id === undefined ?
-                <><p className="mb-0">{account.phoneNumber != undefined ? formattedPhoneNumber(account.phoneNumber) : ""}</p>
-                  <p>{account.email}</p></>
-                :
-                null
-            }
+            {id === undefined ? (
+              <>
+                <p className="mb-0">
+                  {account.phoneNumber != undefined
+                    ? formattedPhoneNumber(account.phoneNumber)
+                    : ""}
+                </p>
+                <p>{account.email}</p>
+              </>
+            ) : null}
 
-            <FollowDisplay followersIds={account.followers} followingIds={account.following}/>
+            <FollowDisplay
+              followersIds={account.followers}
+              followingIds={account.following}
+            />
 
-            <p className="text-break">
-              {account.bio}{" "}
-            </p>
+            <p className="text-break">{account.bio} </p>
           </div>
         )}
       </div>

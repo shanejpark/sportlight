@@ -11,15 +11,19 @@ import Link from "next/link";
 import { CgProfile } from "react-icons/cg";
 import { TbLogout2 } from "react-icons/tb";
 import { TbLogin2 } from "react-icons/tb";
+import { GrUserAdmin } from "react-icons/gr";
 import * as client from "../../client";
+import { UserType } from "../../client";
 import React, { useState, useEffect } from "react";
 
 function NavBar() {
   const [account, setAccount] = useState(null);
+  const [role, setRole] = useState(null);
 
   const fetchAccount = async () => {
     const account = await client.account();
     setAccount(account);
+    setRole(account.role);
   };
 
   const signout = async () => {
@@ -71,6 +75,13 @@ function NavBar() {
           <Nav className="float-end">
             <Link href="/signin" className="nav-link" onClick={signout}>
               <TbLogout2 size={30} />
+            </Link>
+          </Nav>
+        )}
+        {role === UserType.Admin && (
+          <Nav className="float-end">
+            <Link href="/admin" className="nav-link" onClick={signout}>
+              <GrUserAdmin size={30} />
             </Link>
           </Nav>
         )}

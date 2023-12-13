@@ -8,6 +8,7 @@ export interface INewUser {
   password: String;
   firstName: String;
   lastName: String;
+  role: Number;
 }
 
 export interface IUser {
@@ -20,7 +21,7 @@ export interface IUser {
   bio: String;
   pronouns: String;
   phoneNumber: String;
-  followers: [String]
+  followers: [String];
   following: [String];
   highlights: [Number];
   matches: [Number];
@@ -32,7 +33,6 @@ export interface ICredentials {
   email: String;
   password: String;
 }
-
 
 export const USERS_API = `http://localhost:4000/api/users`;
 
@@ -153,7 +153,6 @@ export const signup = async (credentials: ICredentials) => {
       // 'Content-Type': 'application/x-www-form-urlencoded',
     },
     redirect: "follow", // manual, *follow, error
-    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     body: JSON.stringify(credentials),
   }).then((response) => {
     if (!response.ok) {

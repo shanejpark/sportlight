@@ -14,6 +14,7 @@ function Signup() {
     password: "",
     firstName: "",
     lastName: "",
+    role: 1,
   });
   const signup = async () => {
     try {
