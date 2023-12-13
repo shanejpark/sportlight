@@ -18,12 +18,14 @@ import React, { useState, useEffect } from "react";
 
 function NavBar() {
   const [account, setAccount] = useState(null);
-  const [role, setRole] = useState(null);
+  const [role, setRole] = useState(1);
 
   const fetchAccount = async () => {
     const account = await client.account();
-    setAccount(account);
-    setRole(account.role ?? "1");
+    if (account) {
+      setAccount(account);
+      setRole(account.role ?? 1);
+    }
   };
 
   const signout = async () => {
