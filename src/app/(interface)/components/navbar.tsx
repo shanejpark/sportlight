@@ -23,7 +23,7 @@ function NavBar() {
   const fetchAccount = async () => {
     const account = await client.account();
     setAccount(account);
-    setRole(account.role);
+    setRole(account.role ?? "1");
   };
 
   const signout = async () => {
