@@ -25,11 +25,9 @@ function NavBar() {
   const signout = async () => {
     await client.signout();
     setAccount(null);
-  };
-
-  useEffect(() => {
-    fetchAccount();
-  }, []);
+  };    
+  
+  useEffect(() => { fetchAccount(); }, []);
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -53,27 +51,23 @@ function NavBar() {
             </Col>
           </Row>
         </Form>
-        {account && (
-          <Nav className="float-end">
+        {account &&
+          (<Nav className="float-end">
             <Link href="/profile" className="nav-link">
               <CgProfile size={30} />
             </Link>
-          </Nav>
-        )}
-        {!account && (
-          <Nav className="float-end">
-            <Link href="/signin" className="nav-link">
-              <TbLogin2 size={30} />
-            </Link>
-          </Nav>
-        )}
-        {account && (
-          <Nav className="float-end">
-            <Link href="/signin" className="nav-link" onClick={signout}>
-              <TbLogout2 size={30} />
-            </Link>
-          </Nav>
-        )}
+          </Nav>)
+        }
+        <Nav className="float-end">
+          <Link href="/signin" className="nav-link">
+            <TbLogin2 size={30} />
+          </Link>
+        </Nav>
+        <Nav className="float-end">
+          <Link href="/signin" className="nav-link" onClick={signout}>
+            <TbLogout2 size={30} />
+          </Link>
+        </Nav>
         {/* </Navbar.Collapse> */}
       </Container>
     </Navbar>
