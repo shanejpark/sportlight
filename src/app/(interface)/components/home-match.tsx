@@ -1,23 +1,28 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
-function HomeMatch() {
-  return (
-    <div className="col-lg d-flex align-items-center mb-5 ms-5 me-5">
-      <Link href="/match">
-        <div>
+import Link from 'next/link';
+import Image from "next/image";
+
+function HomeMatch(items: any) {
+    return (
+        <div className="col-sm-auto d-flex flex-column align-items-stretch mb-5 ms-4 me-5 bg-light rounded">
+            <Link href={{ pathname: "/match", query: { id: items.mId } }} className='text-decoration-none '>
+            <div>
           <Image
-            src="https://cdn.nba.com/manage/2023/05/2-BOS-MIA-Full-Game-Highlights-Recap-YT-Thumbnail-Playoffs-2023.png"
-            alt="flag"
-            width="500"
+            src={items.imgUrl}
+            alt="league"
+            width="200"
             height="250"
             quality="100"
             className="img-thumbnail"
           />
         </div>
-      </Link>
-    </div>
-  );
+                <h5 className='text-center mt-3 mb-3' style={{color: "black"}}>View
+                </h5>
+            </Link>
+        </div>
+    );
 }
 
 export default HomeMatch;
+
