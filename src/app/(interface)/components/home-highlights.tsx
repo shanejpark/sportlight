@@ -8,29 +8,19 @@ function HomeHighlights() {
   const [data, setData] = useState<any>(null);
   const params = useContext(PageContext);
   const fetchHighlights = () => {
-    const url = `https://basketball-highlights-api.p.rapidapi.com/highlights?season=2023&limit=10${
-      params.selectedCountry !== null &&
-      params.selectedCountry !== void 0 &&
-      params.selectedCountry !== ""
-        ? "&countryName=" + params.selectedCountry
-        : ""
-    }${
-      params.selectedLeague !== null &&
-      params.selectedLeague !== void 0 &&
-      params.selectedLeague !== ""
-        ? "&leagueName=" + params.selectedLeague
-        : ""
-    }`;
-    console.log(url);
-    fetch(url, {
-      method: "GET", // *GET, POST, PUT, DELETE, etc.
-      cache: "force-cache",
-      headers: {
-        Accept: "application/json",
-        "x-rapidapi-key": "aa1fff7c82msh9d775d577faf9b8p16bed0jsne2743caa5c6a",
-        "x-rapidapi-host": "basketball-highlights-api.p.rapidapi.com",
-      },
-    })
+    fetch(
+      "https://basketball-highlights-api.p.rapidapi.com/highlights?limit=10&countryCode=US",
+      {
+        method: "GET", // *GET, POST, PUT, DELETE, etc.
+        cache: "force-cache",
+        headers: {
+          Accept: "application/json",
+          "x-rapidapi-key":
+            "aa1fff7c82msh9d775d577faf9b8p16bed0jsne2743caa5c6a",
+          "x-rapidapi-host": "basketball-highlights-api.p.rapidapi.com",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setData(data);
