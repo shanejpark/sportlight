@@ -23,8 +23,12 @@ module.exports = {
         protocol: "https",
         hostname: "highlightly.net",
         port: "",
-      }
+      },
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+        port: "",
+      },
     ],
-    domains: ["placehold.co"],
   },
 };
