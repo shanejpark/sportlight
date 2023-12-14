@@ -8,7 +8,7 @@ function HomeHighlights() {
   const [data, setData] = useState<any>(null);
   const params = useContext(PageContext);
   const fetchHighlights = () => {
-    const url = `https://basketball-highlights-api.p.rapidapi.com/highlights?limit=10${
+    const url = `https://basketball-highlights-api.p.rapidapi.com/highlights?season=2023&limit=10${
       params.selectedCountry !== null &&
       params.selectedCountry !== void 0 &&
       params.selectedCountry !== ""
@@ -39,8 +39,8 @@ function HomeHighlights() {
   };
 
   const singleHighlight = (highlight: any) => {
-    return (<HomeHighlight vUrl={highlight.url} hId={highlight.id} />)
-  }
+    return <HomeHighlight vUrl={highlight.url} hId={highlight.id} />;
+  };
 
   useEffect(() => {
     fetchHighlights();
