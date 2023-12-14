@@ -59,7 +59,7 @@ export default function Country(props: props) {
   }
 
   return (
-    <div>
+    <div style={{ width: "300px" }}>
       <AsyncSelect
         cacheOptions
         defaultOptions
