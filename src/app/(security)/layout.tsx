@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <div>
       <Link className="text-decoration-none ms-3 mt-3 position-fixed" href="/home">
-        <h1 style={{ fontFamily: "Brush Script MT, cursive", color: "black" }}>Sportlight</h1>
+        <h2 style={{ fontFamily: "Rockwell", color: "black" }} className="mb-0 pt-2">SP🏀RTLIGHT</h2>
       </Link>
       <div className={styles.centered}>{children}</div>
     </div>

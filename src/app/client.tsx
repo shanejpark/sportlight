@@ -21,12 +21,12 @@ export interface IUser {
   bio: String;
   pronouns: String;
   phoneNumber: String;
-  followers: [String];
-  following: [String];
-  highlights: [Number];
-  matches: [Number];
-  teams: [Number];
-  leagues: [Number];
+  followers: String[];
+  following: String[];
+  highlights: Number[];
+  matches: Number[];
+  teams: Number[];
+  leagues: Number[];
 }
 
 export interface ICredentials {
