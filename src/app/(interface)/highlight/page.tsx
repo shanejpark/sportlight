@@ -9,8 +9,8 @@ import { IUser } from "../../client";
 
 export default function HighlightDetails() {
     const searchParams = useSearchParams();
-    const router = useRouter();
     const id = searchParams.get("id");
+    const router = useRouter();
     const [newData, setData] = useState<any>();
     const [account, setAccount] = useState<IUser>();
 
@@ -78,7 +78,7 @@ export default function HighlightDetails() {
                         className="ms-5"
                         onClick={removeHighlight}
                     >
-                        - Favorite
+                        Unfavorite
                     </Button>
                 ) : (
                     <Button
@@ -86,13 +86,13 @@ export default function HighlightDetails() {
                         className="ms-5"
                         onClick={addHighlight}
                     >
-                        + Favorite
+                        Favorite
                     </Button>
                 )}
             </div>
 
             <div className="w-75 mb-5">
-                <h3>Description: {newData && newData[0].description}</h3>
+                <h3>Description: {newData && (newData[0].description ? "" : "No description available")}</h3>
             </div>
 
             {newData && <Match d={newData[0].match} />}

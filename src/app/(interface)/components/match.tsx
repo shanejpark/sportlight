@@ -1,13 +1,90 @@
+"use client";
+
+import * as client from "../../client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import Button from "react-bootstrap/Button";
+import { useState, useEffect } from "react";
+import { IUser } from "../../client";
 
 function Match({ d }: any) {
+  const router = useRouter();
+  const [account, setAccount] = useState<IUser>();
+
+    const fetchAccount = async () => {
+        const account = await client.account();
+        setAccount(account);
+    };
+
   const dateStringToUS = (dateString: string) => {
     const dateObject = new Date(dateString);
-
     // Format the date
     return dateObject.toLocaleDateString("en-US");
   };
+
+  const addLeague = async () => {
+    if (account) {
+      account.leagues.push(d.league.id);
+      await client.updateUser(account);
+    } else {
+      router.push("/signin");
+    }
+  };
+
+  const removeLeague = async () => {
+    if (account) {
+      account.leagues = account.leagues.filter(
+        (lId) => lId !== d.league.id
+      );
+      await client.updateUser(account);
+    } else {
+      router.push("/signin");
+    }
+  };
+
+  const addHomeTeam = async () => {
+    if (account) {
+      account.teams.push(d.homeTeam.id);
+      await client.updateUser(account);
+    } else {
+      router.push("/signin");
+    }
+  };
+
+  const addAwayTeam = async () => {
+    if (account) {
+      account.teams.push(d.awayTeam.id);
+      await client.updateUser(account);
+    } else {
+      router.push("/signin");
+    }
+  };
+
+  const removeHomeTeam = async () => {
+    if (account) {
+      account.teams = account.teams.filter(
+        (tId) => tId !== d.homeTeam.id
+      );
+      await client.updateUser(account);
+    } else {
+      router.push("/signin");
+    }
+  };
+
+  const removeAwayTeam = async () => {
+    if (account) {
+      account.teams = account.teams.filter(
+        (tId) => tId !== d.awayTeam.id
+      );
+      await client.updateUser(account);
+    } else {
+      router.push("/signin");
+    }
+  };
+
+  useEffect(() => {
+    fetchAccount();
+}, [account]);
 
   return (
     <div className="container w-75">
@@ -39,7 +116,21 @@ function Match({ d }: any) {
           <div className="ms-5">
             <p>{d.league.name}</p>
             <p>{d.league.season}</p>
-            <Button variant="outline-dark">+ Favorite</Button>{" "}
+            {account && account.leagues.includes(parseInt(d.league.id || "")) ? (
+                    <Button
+                        variant="outline-dark"
+                        onClick={removeLeague}
+                    >
+                        Unfavorite
+                    </Button>
+                ) : (
+                    <Button
+                        variant="outline-dark"
+                        onClick={addLeague}
+                    >
+                        Favorite
+                    </Button>
+                )}
           </div>
         </div>
       </div>
@@ -56,7 +147,21 @@ function Match({ d }: any) {
           <div className="ms-5">
             <h4>Home Team</h4>
             <p>{d.homeTeam.name}</p>
-            <Button variant="outline-dark">+ Favorite</Button>{" "}
+            {account && account.teams.includes(parseInt(d.homeTeam.id || "")) ? (
+                    <Button
+                        variant="outline-dark"
+                        onClick={removeHomeTeam}
+                    >
+                        Unfavorite
+                    </Button>
+                ) : (
+                    <Button
+                        variant="outline-dark"
+                        onClick={addHomeTeam}
+                    >
+                        Favorite
+                    </Button>
+                )}
           </div>
         </div>
         <div className="col-lg d-flex align-items-center mb-5">
@@ -70,7 +175,21 @@ function Match({ d }: any) {
           <div className="ms-5">
             <h4>Away Team</h4>
             <p>{d.awayTeam.name}</p>
-            <Button variant="outline-dark">+ Favorite</Button>{" "}
+            {account && account.teams.includes(parseInt(d.awayTeam.id || "")) ? (
+                    <Button
+                        variant="outline-dark"
+                        onClick={removeAwayTeam}
+                    >
+                        Unfavorite
+                    </Button>
+                ) : (
+                    <Button
+                        variant="outline-dark"
+                        onClick={addAwayTeam}
+                    >
+                        Favorite
+                    </Button>
+                )}
           </div>
         </div>
       </div>
