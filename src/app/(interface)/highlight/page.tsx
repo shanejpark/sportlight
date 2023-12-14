@@ -112,7 +112,7 @@ export default function HighlightDetails() {
             {newData && <Match d={newData[0].match} />}
 
             <div className='mt-3'>
-                    {vid ? <div dangerouslySetInnerHTML={{ __html: vid }} /> : <div className='text-center'>Unable to load preview</div>}
+                    {vid ? <div dangerouslySetInnerHTML={{ __html: vid.replace(/width="[0-9]+"/, 'width="600"').replace(/height="[0-9]+"/, 'height="400"') }} /> : <div className='text-center'>Unable to load preview</div>}
                 </div>
         </div>
     );
