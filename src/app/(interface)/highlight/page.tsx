@@ -71,7 +71,7 @@ export default function HighlightDetails() {
             <div className="d-flex mt-5 align-items-center mb-5">
                 <h1 className="me-auto invisible">Highlight</h1>
                 <h1>{newData && newData[0].title}</h1>
-                {account && account.highlights.includes(parseInt(id)) ? <Button variant="outline-secondary" className="ms-5" onClick={removeHighlight}>- Favorite</Button> : <Button variant="outline-secondary" className="ms-5" onClick={addHighlight}>+ Favorite</Button>}
+                {account && account.highlights.includes(parseInt(id)) ? <Button variant="outline-secondary" className="ms-5" onClick={removeHighlight}>- Favorite</Button> : <Button variant="outline-dark" className="ms-5" onClick={addHighlight}>+ Favorite</Button>}
             </div>
 
             <div className="w-75 mb-5">

@@ -44,10 +44,6 @@ function FollowDisplay(props: { followersIds: [String]; followingIds: [String] }
             <p><a role="button" onClick={() => handleShow("Followers")}><b>{props.followersIds.length}</b> Followers</a> |
                 <a role="button" onClick={() => handleShow("Following")}><b> {props.followingIds.length}</b> Following</a></p>
 
-            {/* <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
-            </Button> */}
-
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>{type}</Modal.Title>
@@ -70,14 +66,6 @@ function FollowDisplay(props: { followersIds: [String]; followingIds: [String] }
                             )))
                     }
                 </Modal.Body>
-                {/* <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                    </Button>
-                </Modal.Footer> */}
             </Modal>
         </div >
 

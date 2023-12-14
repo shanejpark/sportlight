@@ -6,7 +6,7 @@ interface Props {
 
 function VertFavoriteList(props: Props) {
     return (
-        <div className="card w-50 me-5" >
+        <div className="card w-50 me-3">
             <div className="card-header">
                 Favorite {props.title}
             </div>

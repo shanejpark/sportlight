@@ -40,7 +40,7 @@ function Match({d}) {
           <div className="ms-5">
             <p>{d.league.name}</p>
             <p>{d.league.season}</p>
-            <Button variant="outline-secondary">+ Favorite</Button>{" "}
+            <Button variant="outline-dark">+ Favorite</Button>{" "}
           </div>
         </div>
       </div>
@@ -57,7 +57,7 @@ function Match({d}) {
           <div className="ms-5">
             <p>Home Team</p>
             <p>{d.homeTeam.name}</p>
-            <Button variant="outline-secondary">+ Favorite</Button>{" "}
+            <Button variant="outline-dark">+ Favorite</Button>{" "}
           </div>
         </div>
         <div className="col-lg d-flex align-items-center mb-5">
@@ -71,7 +71,7 @@ function Match({d}) {
           <div className="ms-5">
           <p>Away Team</p>
             <p>{d.awayTeam.name}</p>
-            <Button variant="outline-secondary">+ Favorite</Button>{" "}
+            <Button variant="outline-dark">+ Favorite</Button>{" "}
           </div>
         </div>
       </div>

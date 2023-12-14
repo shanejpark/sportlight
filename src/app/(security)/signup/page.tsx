@@ -27,7 +27,7 @@ function Signup() {
   };
   return (
     <div>
-      <h1>Sign up</h1>
+      <h1>Sign up 🏀</h1>
       <div className="form-group mt-4">
         <label>Email address</label>
         <input

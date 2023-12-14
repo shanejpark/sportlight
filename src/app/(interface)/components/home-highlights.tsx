@@ -28,7 +28,7 @@ function HomeHighlights() {
   }, []);
     return (
         <div>
-            <h4>Highlights</h4>
+            <h3 className='bg-light rounded p-2 mb-4'>Highlights 📷</h3>
             <HomeHighlight vUrl="https://www.youtube.com/embed/7ciRTP90E2E" hId="26"/>
             <div className="row mt-5 ms-5 me-5">
                 {data && data?.data.map((highlight: any) => {<HomeHighlight vUrl={highlight.url} id={highlight.id}/>} )}

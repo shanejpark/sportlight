@@ -20,7 +20,7 @@ export default function ProfileEdit() {
     }, []);
 
     return (
-        <div className="container mt-5 w-50">
+        <div className="container mt-5 w-50 pb-5">
             <h1>Edit Profile</h1>
             <form>
                 <div className="mb-3 mt-4">
@@ -98,7 +98,7 @@ export default function ProfileEdit() {
                 </div>
 
                 <div>
-                    <a className="btn btn-primary float-end mb-3" href="/profile" role="button" onClick={save}>Submit</a>
+                    <a className="btn btn-dark float-end mb-3" href="/profile" role="button" onClick={save}>Submit</a>
                     <a className="btn btn-secondary float-end me-2 mb-3" href="/profile" role="button">Cancel</a>
                 </div>
             </form>

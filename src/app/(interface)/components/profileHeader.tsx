@@ -43,7 +43,7 @@ function ProfileHeader() {
     <div className="container">
       <div className="row ms-5">
         {account && (
-          <div className="col-sm-9 ms-5">
+          <div className="col-sm-9 ms-3">
             <h2>
               {account.firstName} {account.lastName}
             </h2>

@@ -3,7 +3,7 @@ import HomeMatch from "./home-match";
 function HomeMatches() {
     return (
         <div>
-            <h4>Matches</h4>
+            <h3 className="bg-light rounded p-2">Matches 🏆</h3>
             
             <div className="row d-flex ms-5 me-5 mt-5">
             

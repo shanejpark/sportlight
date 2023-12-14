@@ -49,7 +49,7 @@ function HomePeople() {
 
     return (
         <div>
-            <h4>People</h4>
+            <h3 className="bg-light rounded p-2">People 👥</h3>
             <div className="container mt-5">
                 <div className="mb-3 row">
                     {users.map((user: client.IUser) => (

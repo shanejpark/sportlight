@@ -57,15 +57,15 @@ export default function UserProfile() {
 
     return (
         <div className="d-flex flex-column">
-            <div className="d-flex mt-5 ms-5">
+            <div className="d-flex mt-5 ms-5 bg-light me-5 pt-4 pb-4 rounded">
                 <ProfileHeader />
-                <div className="w-25 float-end">
+                <div className="w-25 float-end me-3">
                     {
                         account?.following.includes(user?._id as String) ?
-                            <Button variant="outline-secondary" onClick={unfollow}>
+                            <Button variant="outline-dark" onClick={unfollow}>
                                 Unfollow
                             </Button> :
-                            <Button variant="outline-secondary" onClick={follow}>
+                            <Button variant="outline-dark" onClick={follow}>
                                 + Follow
                             </Button>
                     }

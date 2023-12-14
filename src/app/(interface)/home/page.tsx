@@ -1,8 +1,6 @@
-import Link from "next/link";
 import HomeHighlights from "../components/home-highlights";
 import HomeMatches from "../components/home-matches";
 import HomePeople from "../components/home-people";
-import HomeCheckboxes from "../components/home-checkboxes";
 
 export default function Main() {
   return (

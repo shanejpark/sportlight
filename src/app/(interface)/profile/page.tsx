@@ -8,11 +8,11 @@ import VertFavoriteList from "../components/vertFavoriteList";
 export default function Profile() {
     return (
         <div className="d-flex flex-column">
-            <div className="d-flex mt-5 ms-5">
+            <div className="d-flex mt-5 ms-5 bg-light me-5 pt-4 pb-4 rounded">
                 <ProfileHeader />
                 <div className="w-25 float-end me-3">
                     <Link href="/profile/edit">
-                        <Button variant="outline-secondary">
+                        <Button variant="outline-dark">
                             <MdOutlineEdit />
                             Edit Profile
                         </Button>

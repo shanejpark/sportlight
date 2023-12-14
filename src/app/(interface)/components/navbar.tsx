@@ -42,7 +42,7 @@ function NavBar() {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Link href="/home" className="navbar-brand">
-          <h1 style={{fontFamily: "Brush Script MT, cursive"}}>Sportlight</h1>
+          <h2 style={{fontFamily: "Rockwell"}} className="mb-0 pt-2">SP🏀RTLIGHT</h2>
         </Link>
         {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
         {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
