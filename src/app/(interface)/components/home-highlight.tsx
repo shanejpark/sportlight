@@ -22,8 +22,8 @@ function HomeHighlight(items: any) {
     return (
         <div className="col-sm-auto d-flex flex-column align-items-stretch mb-3 ms-4 me-5 bg-light rounded">
             <Link href={{ pathname: "/highlight", query: { id: items.hId } }} className='text-decoration-none '>
-                <div className='video-container mt-3'>
-                    {vid ? <div dangerouslySetInnerHTML={{ __html: vid }} /> : <div className='text-center'>Loading...</div>}
+                <div className='mt-3'>
+                    {vid ? <div dangerouslySetInnerHTML={{ __html: vid.replace(/width="[0-9]+"/, 'width="300"').replace(/height="[0-9]+"/, 'height="200"') }} /> : <div className='text-center'>Unable to load preview</div>}
                 </div>
                 <h5 className='text-center mt-3 mb-3' style={{color: "black"}}>View
                 </h5>

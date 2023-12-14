@@ -3,7 +3,7 @@
 import * as client from "../../client";
 import Button from "react-bootstrap/Button";
 import Match from "../components/match";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { IUser } from "../../client";
 
@@ -14,6 +14,16 @@ export default function HighlightDetails() {
     const [newData, setData] = useState<any>();
     const [account, setAccount] = useState<IUser>();
 
+    const [vid, setVid] = useState<any>(null);
+
+    const fetchVideoEmbed = async () => {
+        fetch(`https://www.youtube.com/oembed?url=${encodeURIComponent(newData[0].url)}&format=json`)
+            .then((res) => res.json())
+            .then((data) => {
+                setVid(data.html);
+                console.log(data);
+            });
+    }
     const fetchAccount = async () => {
         const account = await client.account();
         setAccount(account);
@@ -67,6 +77,10 @@ export default function HighlightDetails() {
         console.log(newData);
     }, [newData]);
 
+    useEffect(() => {
+        fetchVideoEmbed();
+    }, [newData, vid]);
+
     return (
         <div className="d-flex flex-column align-items-center">
             <div className="d-flex mt-5 align-items-center mb-5">
@@ -97,9 +111,9 @@ export default function HighlightDetails() {
 
             {newData && <Match d={newData[0].match} />}
 
-            <div className="mb-3">
-                {newData && <iframe style={{width: "80vw", height: "80vh", position: "relative"}} src={newData[0].url} frameBorder="0"></iframe>}
-            </div>
+            <div className='mt-3'>
+                    {vid ? <div dangerouslySetInnerHTML={{ __html: vid }} /> : <div className='text-center'>Unable to load preview</div>}
+                </div>
         </div>
     );
 }
