@@ -54,7 +54,7 @@ function Match({ d }: any) {
             className="img-thumbnail"
           />
           <div className="ms-5">
-            <p>Home Team</p>
+            <h4>Home Team</h4>
             <p>{d.homeTeam.name}</p>
             <Button variant="outline-dark">+ Favorite</Button>{" "}
           </div>
@@ -68,7 +68,7 @@ function Match({ d }: any) {
             className="img-thumbnail"
           />
           <div className="ms-5">
-            <p>Away Team</p>
+            <h4>Away Team</h4>
             <p>{d.awayTeam.name}</p>
             <Button variant="outline-dark">+ Favorite</Button>{" "}
           </div>
