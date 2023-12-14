@@ -1,37 +1,45 @@
 import Image from "next/image";
 import Button from "react-bootstrap/Button";
 
-function Match() {
+
+function Match({d}) {
+  const dateStringToUS = (dateString: string) => {
+    const dateObject = new Date(dateString);
+    
+    // Format the date
+    return dateObject.toLocaleDateString('en-US');
+  }
+
   return (
     <div className="container w-75">
       <div className="row d-flex ms-5 me-5">
         <div className="col-lg d-flex align-items-center mb-5">
           <Image
-            src="https://placehold.co/300x200"
+            src={d.country.logo}
             width="300"
             height="200"
             alt="flag"
             className="img-thumbnail"
           />
           <div className="ms-4">
-            <p>Country</p>
-            <p>Stage</p>
-            <p>Week</p>
-            <p>Date</p>
+            <p>{d.country.code}</p>
+            <p>{d.stage!}</p>
+            <p>{d.week}</p>
+            <p>{dateStringToUS(d.date)}</p>
           </div>
         </div>
 
         <div className="col-lg d-flex align-items-center mb-5 ms-5">
           <Image
-            src="https://placehold.co/200x200"
+            src={d.league.logo}
             alt="league"
             width="200"
             height="200"
             className="img-thumbnail"
           />
           <div className="ms-5">
-            <p>League Name</p>
-            <p>Season</p>
+            <p>{d.league.name}</p>
+            <p>{d.league.season}</p>
             <Button variant="outline-secondary">+ Favorite</Button>{" "}
           </div>
         </div>
@@ -40,7 +48,7 @@ function Match() {
       <div className="row mt-5 ms-5 me-5">
         <div className="col-lg d-flex align-items-center mb-5">
           <Image
-            src="https://placehold.co/200x200"
+            src={d.homeTeam.logo}
             width="200"
             height="200"
             alt="home-team"
@@ -48,19 +56,21 @@ function Match() {
           />
           <div className="ms-5">
             <p>Home Team</p>
+            <p>{d.homeTeam.name}</p>
             <Button variant="outline-secondary">+ Favorite</Button>{" "}
           </div>
         </div>
         <div className="col-lg d-flex align-items-center mb-5">
           <Image
-            src="https://placehold.co/200x200"
+            src={d.awayTeam.logo}
             width="200"
             height="200"
             alt="away-team"
             className="img-thumbnail"
           />
           <div className="ms-5">
-            <p>Away Team</p>
+          <p>Away Team</p>
+            <p>{d.awayTeam.name}</p>
             <Button variant="outline-secondary">+ Favorite</Button>{" "}
           </div>
         </div>

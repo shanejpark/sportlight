@@ -1,15 +1,18 @@
-import Image from 'react-bootstrap/Image';
+"use client";
+
 import Link from 'next/link';
 
-function HomeHighlight() {
+function HomeHighlight(items: any) {
+
     return (
-        <div className="col-lg d-flex align-items-center mb-5 ms-5 me-5">
-            <Link href="/highlight">
-                <video width="320" height="240" controls>
-                    <source src="https://placehold.co/640x480.mp4?text=Hello+World" type="video/mp4" />
-                </video>
-                <h3 className='text-center mt-4'>Detailed View</h3>
-            </Link>
+        <div className="col-lg flex-column align-items-center mb-5 ms-5 me-5">
+            <Link href={{ pathname: "/highlight", query: {id: items.hId}}}>
+                <div className='video-container'>
+                <iframe src={items.vUrl} frameBorder="0"></iframe>
+                </div>
+                <h3 className='text-center mt-4'>View Highlight
+                </h3>
+                </Link>
         </div>
     );
 }

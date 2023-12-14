@@ -19,6 +19,11 @@ module.exports = {
         hostname: "cdn.nba.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "highlightly.net",
+        port: "",
+      }
     ],
     domains: ["placehold.co"],
   },
