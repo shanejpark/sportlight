@@ -51,7 +51,7 @@ function HomePeople() {
         <div>
             <h3 className="bg-light rounded p-2">People 👥</h3>
             <div className="container mt-5">
-                <div className="mb-3 row">
+                <div className="mb-3 row d-flex align-items-center justify-content-center">
                     {users.map((user: client.IUser) => (
                         // eslint-disable-next-line react/jsx-key
                         <div className="col-lg-4 d-flex flex-column align-items-stretch mb-4">

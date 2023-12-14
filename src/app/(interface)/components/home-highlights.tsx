@@ -39,7 +39,12 @@ function HomeHighlights() {
   return (
     <div>
       <h3 className='bg-light rounded p-2 mb-4'>Highlights 📷</h3>
-      {data && data.data.map(singleHighlight)}
+      <div className="container mt-5">
+                <div className="mb-3 row d-flex align-items-center justify-content-center">
+                {data && data.data.map(singleHighlight)}
+                </div>
+            </div>
+      
       {/* <div className="row mt-5 ms-5 me-5">
         {data &&
           data.data.map((highlight: any) => {
