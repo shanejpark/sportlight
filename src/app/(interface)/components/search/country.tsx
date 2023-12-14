@@ -32,7 +32,7 @@ export default function Country() {
   }
 
   async function promiseOptionsLeague(inputValue: String) {
-    const url = `https://basketball-highlights-api.p.rapidapi.com/countryName=${selectedCountry}`;
+    const url = `https://basketball-highlights-api.p.rapidapi.com/leagues?countryName=${selectedCountry}`;
     try {
       const response = await fetch(url, {
         method: "GET",
@@ -43,7 +43,7 @@ export default function Country() {
           "X-RapidAPI-Host": "basketball-highlights-api.p.rapidapi.com",
         },
       });
-      console.log(url);
+      console.log(selectedCountry);
       const result = await response.json();
       console.log(result);
       const names = result.data.map(function (item: any) {
@@ -61,10 +61,9 @@ export default function Country() {
     <div>
       <AsyncSelect
         cacheOptions
-        value={selectedCountry}
         defaultOptions
         onChange={(option: any) => {
-          setSelectedCountry(option.name);
+          setSelectedCountry(option.label);
         }}
         loadOptions={promiseOptionsCountry}
       />
@@ -74,7 +73,7 @@ export default function Country() {
           value={selectedLeague}
           defaultOptions
           onChange={(option: any) => {
-            setSelectedLeague(option.name);
+            setSelectedLeague(option.label);
           }}
           loadOptions={promiseOptionsLeague}
         />
