@@ -27,7 +27,7 @@ function HomeHighlights() {
       });
   };
 
-  const singleHighlight = (highlight : any) => {
+  const singleHighlight = (highlight: any) => {
     return (<HomeHighlight vUrl={highlight.url} hId={highlight.id} />)
   }
 
@@ -40,11 +40,11 @@ function HomeHighlights() {
     <div>
       <h3 className='bg-light rounded p-2 mb-4'>Highlights 📷</h3>
       <div className="container mt-5">
-                <div className="mb-3 row d-flex align-items-center justify-content-center">
-                {data && data.data.map(singleHighlight)}
-                </div>
-            </div>
-      
+        <div className="mb-3 row d-flex align-items-center justify-content-center">
+          {data && data.data.map(singleHighlight)}
+        </div>
+      </div>
+
       {/* <div className="row mt-5 ms-5 me-5">
         {data &&
           data.data.map((highlight: any) => {

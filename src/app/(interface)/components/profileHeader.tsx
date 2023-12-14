@@ -26,7 +26,7 @@ function ProfileHeader() {
     } else {
       fetchAccount();
     }
-  }, [account]);
+  }, []);
 
   const formattedPhoneNumber = (num: String) => {
     let formattedNumber =
