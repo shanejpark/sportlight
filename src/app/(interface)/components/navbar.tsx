@@ -16,12 +16,12 @@ import * as client from "../../client";
 import { UserType } from "../../client";
 import React, { useState, useEffect } from "react";
 import Country from "./search/country";
+import { PageContext } from "../../layout";
 
 function NavBar() {
   const [account, setAccount] = useState(null);
   const [role, setRole] = useState(1);
-  const [selectedCountry, setSelectedCountry] = useState("");
-  const [selectedLeague, setSelectedLeague] = useState("");
+  const params = React.useContext(PageContext);
 
   const fetchAccount = async () => {
     const account = await client.account();
@@ -54,9 +54,9 @@ function NavBar() {
           <Row>
             <Col xs="auto">
               <Country
-                selectedCountry={selectedCountry}
-                setSelectedCountry={setSelectedCountry}
-                setSelectedLeague={setSelectedLeague}
+                selectedCountry={params.selectedCountry}
+                setSelectedCountry={params.setSelectedCountry}
+                setSelectedLeague={params.setSelectedLeague}
               />
             </Col>
             <Col xs="auto">
