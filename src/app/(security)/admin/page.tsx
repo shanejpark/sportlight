@@ -10,8 +10,8 @@ import {
 } from "react-icons/bs";
 import { BiPencil } from "react-icons/bi";
 function UserTable() {
-  const [users, setUsers] = useState([]);
-  const [user, setUser] = useState({});
+  const [users, setUsers] = useState(new Array());
+  const [user, setUser] = useState<client.INewUser | any>({});
   const createUser = async () => {
     try {
       let role = 1;
@@ -27,7 +27,7 @@ function UserTable() {
     const users = await client.findAllUsers();
     setUsers(users);
   };
-  const selectUser = async (user) => {
+  const selectUser = async (user: client.IUser) => {
     try {
       const u = await client.findUserById(user._id);
       setUser(u);
@@ -43,7 +43,7 @@ function UserTable() {
       console.log(err);
     }
   };
-  const deleteUser = async (user) => {
+  const deleteUser = async (user: client.IUser) => {
     try {
       await client.deleteUser(user);
       setUsers(users.filter((u) => u._id !== user._id));

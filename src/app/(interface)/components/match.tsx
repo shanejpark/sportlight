@@ -1,14 +1,13 @@
 import Image from "next/image";
 import Button from "react-bootstrap/Button";
 
-
-function Match({d}) {
+function Match({ d }: any) {
   const dateStringToUS = (dateString: string) => {
     const dateObject = new Date(dateString);
-    
+
     // Format the date
-    return dateObject.toLocaleDateString('en-US');
-  }
+    return dateObject.toLocaleDateString("en-US");
+  };
 
   return (
     <div className="container w-75">
@@ -69,7 +68,7 @@ function Match({d}) {
             className="img-thumbnail"
           />
           <div className="ms-5">
-          <p>Away Team</p>
+            <p>Away Team</p>
             <p>{d.awayTeam.name}</p>
             <Button variant="outline-secondary">+ Favorite</Button>{" "}
           </div>
