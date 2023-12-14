@@ -15,6 +15,7 @@ import { GrUserAdmin } from "react-icons/gr";
 import * as client from "../../client";
 import { UserType } from "../../client";
 import React, { useState, useEffect } from "react";
+import Country from "./search/country";
 
 function NavBar() {
   const [account, setAccount] = useState(null);
@@ -48,11 +49,7 @@ function NavBar() {
         <Form className="ms-5 me-auto">
           <Row>
             <Col xs="auto">
-              <Form.Control
-                type="text"
-                placeholder="Search"
-                className="mr-sm-2"
-              />
+              <Country />
             </Col>
             <Col xs="auto">
               <Button type="submit" className="btn btn-dark">Submit</Button>
