@@ -1,25 +1,36 @@
 "use client";
 
 import HomeHighlight from "./home-highlight";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { PageContext } from "@/app/layout";
 
 function HomeHighlights() {
   const [data, setData] = useState<any>(null);
-
+  const params = useContext(PageContext);
   const fetchHighlights = () => {
-    fetch(
-      "https://basketball-highlights-api.p.rapidapi.com/highlights?limit=10&countryCode=US",
-      {
-        method: "GET", // *GET, POST, PUT, DELETE, etc.
-        cache: "force-cache",
-        headers: {
-          Accept: "application/json",
-          "x-rapidapi-key":
-            "aa1fff7c82msh9d775d577faf9b8p16bed0jsne2743caa5c6a",
-          "x-rapidapi-host": "basketball-highlights-api.p.rapidapi.com",
-        },
-      }
-    )
+    const url = `https://basketball-highlights-api.p.rapidapi.com/highlights?limit=10${
+      params.selectedCountry !== null &&
+      params.selectedCountry !== void 0 &&
+      params.selectedCountry !== ""
+        ? "&countryName=" + params.selectedCountry
+        : ""
+    }${
+      params.selectedLeague !== null &&
+      params.selectedLeague !== void 0 &&
+      params.selectedLeague !== ""
+        ? "&leagueName=" + params.selectedLeague
+        : ""
+    }`;
+    console.log(url);
+    fetch(url, {
+      method: "GET", // *GET, POST, PUT, DELETE, etc.
+      cache: "force-cache",
+      headers: {
+        Accept: "application/json",
+        "x-rapidapi-key": "aa1fff7c82msh9d775d577faf9b8p16bed0jsne2743caa5c6a",
+        "x-rapidapi-host": "basketball-highlights-api.p.rapidapi.com",
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -33,12 +44,11 @@ function HomeHighlights() {
 
   useEffect(() => {
     fetchHighlights();
-  }, []);
-
+  }, [params]);
 
   return (
     <div>
-      <h3 className='bg-light rounded p-2 mb-4'>Highlights 📷</h3>
+      <h3 className="bg-light rounded p-2 mb-4">Highlights 📷</h3>
       <div className="container mt-5">
         <div className="mb-3 row d-flex align-items-center justify-content-center">
           {data && data.data.map(singleHighlight)}
