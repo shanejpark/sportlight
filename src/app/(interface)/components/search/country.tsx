@@ -8,8 +8,7 @@ interface props {
   setSelectedLeague: Function;
 }
 
-export default function Country(props:props) {
-
+export default function Country(props: props) {
   async function promiseOptionsCountry(inputValue: String) {
     const url = "https://basketball-highlights-api.p.rapidapi.com/countries";
     try {
@@ -36,7 +35,7 @@ export default function Country(props:props) {
   }
 
   async function promiseOptionsLeague(inputValue: String) {
-    const url = `https://basketball-highlights-api.p.rapidapi.com/leagues?countryName=${selectedCountry}`;
+    const url = `https://basketball-highlights-api.p.rapidapi.com/leagues?countryName=${props.selectedCountry}`;
     try {
       const response = await fetch(url, {
         method: "GET",

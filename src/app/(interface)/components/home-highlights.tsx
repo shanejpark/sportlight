@@ -4,7 +4,7 @@ import HomeHighlight from "./home-highlight";
 import { useEffect, useState } from "react";
 
 function HomeHighlights() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<any>(null);
 
   const fetchHighlights = () => {
     fetch(
