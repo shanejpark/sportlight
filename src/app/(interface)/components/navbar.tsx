@@ -20,6 +20,8 @@ import Country from "./search/country";
 function NavBar() {
   const [account, setAccount] = useState(null);
   const [role, setRole] = useState(1);
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedLeague, setSelectedLeague] = useState("");
 
   const fetchAccount = async () => {
     const account = await client.account();
@@ -42,17 +44,25 @@ function NavBar() {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Link href="/home" className="navbar-brand">
-          <h2 style={{fontFamily: "Rockwell"}} className="mb-0 pt-2">SP🏀RTLIGHT</h2>
+          <h2 style={{ fontFamily: "Rockwell" }} className="mb-0 pt-2">
+            SP🏀RTLIGHT
+          </h2>
         </Link>
         {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
         {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
         <Form className="ms-5 me-auto">
           <Row>
             <Col xs="auto">
-              <Country />
+              <Country
+                selectedCountry={selectedCountry}
+                setSelectedCountry={setSelectedCountry}
+                setSelectedLeague={setSelectedLeague}
+              />
             </Col>
             <Col xs="auto">
-              <Button type="submit" className="btn btn-dark">Submit</Button>
+              <Button type="submit" className="btn btn-dark">
+                Submit
+              </Button>
             </Col>
           </Row>
         </Form>

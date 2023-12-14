@@ -2,9 +2,13 @@ import React, { useState } from "react";
 
 import AsyncSelect from "react-select/async";
 
-export default function Country() {
-  const [selectedCountry, setSelectedCountry] = useState("");
-  const [selectedLeague, setSelectedLeague] = useState("");
+interface props {
+  selectedCountry: String;
+  setSelectedCountry: Function;
+  setSelectedLeague: Function;
+}
+
+export default function Country(props:props) {
 
   async function promiseOptionsCountry(inputValue: String) {
     const url = "https://basketball-highlights-api.p.rapidapi.com/countries";
@@ -43,9 +47,7 @@ export default function Country() {
           "X-RapidAPI-Host": "basketball-highlights-api.p.rapidapi.com",
         },
       });
-      console.log(selectedCountry);
       const result = await response.json();
-      console.log(result);
       const names = result.data.map(function (item: any) {
         return { label: item["name"], value: item["name"] };
       });
@@ -63,17 +65,16 @@ export default function Country() {
         cacheOptions
         defaultOptions
         onChange={(option: any) => {
-          setSelectedCountry(option.label);
+          props.setSelectedCountry(option.label);
         }}
         loadOptions={promiseOptionsCountry}
       />
-      {!(selectedCountry === "") && (
+      {!(props.selectedCountry === "") && (
         <AsyncSelect
           cacheOptions
-          value={selectedLeague}
           defaultOptions
           onChange={(option: any) => {
-            setSelectedLeague(option.label);
+            props.setSelectedLeague(option.label);
           }}
           loadOptions={promiseOptionsLeague}
         />
